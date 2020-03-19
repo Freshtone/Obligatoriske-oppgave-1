@@ -1,3 +1,3 @@
-var fart = 'fart';
+var date = [[0-9]];
 
-console.log(fart);
+console.log(date);
