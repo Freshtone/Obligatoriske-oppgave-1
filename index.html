@@ -1,21 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8">
-<title>JavaScript form validation - checking date</title>
-<link rel='stylesheet' href='form-style.css' type='text/css' />   
-</head><body onload='document.form1.text1.focus()'>
-<div class="mail">
-<h2>Input a date and check if its accepted by system</h2>
-<form name="form1" action="#"> 
-<ul>
-<li><input type='text' name='text1'/></li>
-<li>&nbsp;</li>
-<li class="submit"><input type="submit" name="submit" value="Submit" onclick="validatedate(document.form1.text1)"/></li>
-<li>&nbsp;</li>
-</ul>
-</form>
-</div>
-<script src="script.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Obligatoriske Oppgave 1</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
+    <script src="lib.js"></script>
+    <script>
+        
+        //Teksten må ha lengde 10.
+        QUnit.test("Valid Date", function (assert) {
+            var acceptableDate = isThisOk('15.05.1985');
+            assert.equal(acceptableDate, true);
+        });
+        
+        //Det må være punktum i tredje posisjon og i sjette posisjon.
+        QUnit.test("Valid Dot At Third And Seventh Place", function (assert) {
+            var acceptableDate = isThisOk('15.05.1985');
+            assert.equal(acceptableDate, true);
+        });
+
+        //År er 0000 eller større. Kan sjekkes med year.length === 4 && year >= '0000' && year <= '9999'
+        QUnit.test("Valid That Year Is 0000 Or Higher", function (assert) {
+            var acceptableDate = isThisOk('15.05.1985');
+            assert.equal(acceptableDate, true);
+        });
+
+        //Måned er fra og med 01 til og med 12. Kan sjekkes som over.
+        QUnit.test("Valid Month Between 01-12", function (assert) {
+            var acceptableDate = isThisOk('15.05.1985');
+            assert.equal(acceptableDate, true);
+        });
+
+        //Dag er fra og med 01 til og med 28.
+        QUnit.test("Valid Day Between 01-28", function (assert) {
+            var acceptableDate = isThisOk('15.05.1985');
+            assert.equal(acceptableDate, true);
+        });
+    </script>
 </body>
 </html>
