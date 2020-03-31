@@ -4,6 +4,7 @@ function isThisOk(date) {
     && isYearAbove0000(date)
     && isMonthBetween01And12(date)
     && isDayBetween01And28(date)
+    && is29thFebuaryAndLeapYear(date)
 }
 
 //Teksten må ha lengde 10.
@@ -27,7 +28,20 @@ function isMonthBetween01And12(date)    {
 //Dag er fra og med 01 til og med 28
 function isDayBetween01And28(date)    {
     var day = date.substring(0,2);
-    //if day == '29' return true;
     return day >= '01' && day <= '28';
-     
+}
+
+//29 er lov for februar hvis det er skuddår. Bruk denne funksjonen til å finne ut om det er skuddår eller ikke:
+function is29thFebuaryAndLeapYear(date) {
+    if isLeapYear(year) == true {
+        return true;
+    }
+}
+
+
+
+
+
+function isLeapYear(year)   {
+return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
 }
