@@ -40,32 +40,31 @@
             assert.equal(acceptableDate, true);
         });
 
-        //Dag er fra og med 01 til og med 28.
-                
+        //Dag er fra og med 01 til og med 28.      
         QUnit.test("Valid Day Between 01-28", function (assert) {
             var acceptableDate = isThisOk('15.05.1985');
             assert.equal(acceptableDate, true);
         });
+
         //29 er lov for februar hvis det er skuddår. Bruk denne funksjonen til å finne ut om det er skuddår eller ikke:
-
-
         QUnit.test("Valid 29th Febuary On LeapYear", function (assert) {
             var acceptableDate = isFebuaryOk('29.02.2020');
             assert.equal(acceptableDate, true);
         });
 
-//--------------------------------------------------------------------------------
-        // //30 er lov for alle måneder utenom februar
-        // QUnit.test("Valid Day Between 01-28 ++ Other Stuff", function (assert) {
-        //     var acceptableDate = isThisOk('15.05.1985');
-        //     assert.equal(acceptableDate, true);
-        // });
+        //30 er lov for alle måneder utenom februar
+        QUnit.test("30th For All Months Except Febuary", function (assert) {
+            var acceptableDate = isThisOk('30.02.1985');
+            assert.equal(acceptableDate, false);
+        });
+
+
 
         // //31 er lovlig for januar, mars, mai, juli, august, oktober og desember
         // QUnit.test("Valid Day Between 01-28 ++ Other Stuff", function (assert) {
         //     var acceptableDate = isThisOk('15.05.1985');
         //     assert.equal(acceptableDate, true);
-        // });
+        // }); if 
 
     </script>
 </body>

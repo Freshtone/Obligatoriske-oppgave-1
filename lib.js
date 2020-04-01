@@ -34,7 +34,7 @@ function isDayBetween01And28(date)    {
     return day >= '01' && day <= '28';
 }
 
-//29 er lov for februar hvis det er skuddår. Bruk denne funksjonen til å finne ut om det er skuddår eller ikke:
+//29 er lov for februar hvis det er skuddår.
 function isFebuaryOk(date) {
     var day = date.substring(0,2);
     var month = date.substring(3,5);
@@ -47,3 +47,10 @@ function isFebuaryOk(date) {
                 return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
                 }
 
+//30 er lov for alle måneder utenom februar
+function isFebuary30OrNot(date)    {
+    var day = date.substring(0,2);
+    var month = date.substring(3,5);
+    if (month == '02' && day == '30')
+        return false;
+}
