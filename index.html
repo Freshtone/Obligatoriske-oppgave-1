@@ -54,17 +54,16 @@
 
         //30 er lov for alle måneder utenom februar
         QUnit.test("30th For All Months Except Febuary", function (assert) {
-            var acceptableDate = isThisOk('30.02.1985');
+            var acceptableDate = isFebuary30OrNot('30.02.1985');
             assert.equal(acceptableDate, false);
         });
 
-
-
         // //31 er lovlig for januar, mars, mai, juli, august, oktober og desember
-        // QUnit.test("Valid Day Between 01-28 ++ Other Stuff", function (assert) {
-        //     var acceptableDate = isThisOk('15.05.1985');
-        //     assert.equal(acceptableDate, true);
-        // }); if 
+        QUnit.test("31st Valid For Certain Months", function (assert) {
+            var acceptableDate = is31OkForCertainMonths('31.09.1985');
+            assert.equal(acceptableDate, true);
+        });
+
 
     </script>
 </body>

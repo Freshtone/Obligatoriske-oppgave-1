@@ -43,14 +43,26 @@ function isFebuaryOk(date) {
         return true;
 }
 
-                function isLeapYear(year)   {
-                return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
-                }
+            function isLeapYear(year)   {
+            return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 ==0);
+            }
 
 //30 er lov for alle måneder utenom februar
 function isFebuary30OrNot(date)    {
     var day = date.substring(0,2);
     var month = date.substring(3,5);
     if (month == '02' && day == '30')
-        return false;
+        return false;   
+            else return true;
+        
+}
+
+// //31 er lovlig for januar, mars, mai, juli, august, oktober og desember
+function is31OkForCertainMonths(date)    {
+    var day = date.substring(0,2)
+    var month = date.substring(3,5);
+    if (day == 31 && month == '01' || '03' || '05' || '07' || '08' || '10' || '12' )    {
+        return true; }  
+            else if (day == 30 && month == '04' || '06' || '09' || '11' ) 
+               { return false;  }
 }
