@@ -24,18 +24,38 @@ function isLeapYear(year) {
 function isFebuary30OrNot(date) {
     var day = date.substring(0, 2);
     var month = date.substring(3, 5);
-    if (month == '02' && day == '30')
-        return false;
-    else return true;
-
+    if (day <= '31' && month == ('01' || '03' || '05' || '07' || '08' || '10' || '12')) return true;
+    else if (day <= '30' && month == ('04' || '06' || '09' || '11')) return true;
+    else return false;
 }
 
-// //31 er lovlig for januar, mars, mai, juli, august, oktober og desember
-function is31OkForCertainMonths(date) {
-    var day = date.substring(0, 2)
+//-----------------------------------Fra Terje--------------------------
+function isDayOk(date) {
+    var day = date.substring(0, 2);
     var month = date.substring(3, 5);
-    if (day == 31 && month == '01' || '03' || '05' || '07' || '08' || '10' || '12') {
-        return true;
-    }
-    else if (day == 30 && month == '04' || '06' || '09' || '11') { return false; }
+    var isFebruary = month == '02';
+    var isShortMonth = month == '04' || month ==  '06' || month ==  '09' || month ==  '11';
+    return day >= '01' && day <= '28'
+      || day == '29' && (!isFebruary|| isLeapYear)
+      || day == '30' && (!isFebruary)
+      || day == '31' && !isFebruary && !isShortMonth;
 }
+// fra terje ---------------------------------------------------------
+
+
+
+
+
+
+
+
+// // //31 er lovlig for januar, mars, mai, juli, august, oktober og desember
+// function is31OkForCertainMonths(date) {
+//     var day = date.substring(0, 2)
+//     var month = date.substring(3, 5);
+//     if (day == 31 && month == '01' || '03' || '05' || '07' || '08' || '10' || '12') {
+//         return true;
+
+//     }
+//     else if (day == 30 && month == '04' || '06' || '09' || '11') { return false; }
+//
