@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Obligatoriske Oppgave 1</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
+    <script src="libV3.js"></script>
+    <script>
+        
+
+// Second, Third, Fourth and Fifth Qunit test can be removed in V2....----------
+
+        //Teksten må ha lengde 10.Det må være punktum i tredje posisjon og i sjette posisjon.År er 0000 eller større. Måned er fra og med 01 til og med 12. Dag er fra og med 01 til og med 28.     
+        QUnit.test("Valid Date (length, points, year bigger than '0000', month from '01 - 12' and days from '01 - 28' ", function (assert) {
+            var acceptableDate = isThisOk('15.05.1985');
+            assert.equal(acceptableDate, true);
+        });
+        
+        QUnit.test("Checking for - 29 er lov for februar hvis det er skuddår, 30 er lov for alle måneder utenom februar and 31 er lovlig for januar, mars, mai, juli, august, oktober og desember", function (assert) {
+            var acceptableDate = monthChecks('31.05.2020');
+            assert.equal(acceptableDate, true);
+        });
+
+    </script>
+</body>
+</html>
