@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
 </head>
 <body>
+
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
     <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
     <script src="libV3.js"></script>
     <script>
-        
 
 // Second, Third, Fourth and Fifth Qunit test can be removed in V2....----------
 
@@ -40,7 +40,7 @@
         });
 
         QUnit.test("Ugyldig - Year is between 0000 and 9999", function (assert) {
-            var acceptableDate = isYearAbove0000('31.05.202037');
+            var acceptableDate = isYearAbove0000('31.05.12345');
             assert.equal(acceptableDate, true);
         });
 
@@ -49,8 +49,38 @@
             assert.equal(acceptableDate, true);
         });
 
-        QUnit.test("Ugyldig - Day is from 01 to and including 28 ", function (assert) {
+        QUnit.test("Ugyldig - Day is from 01 to and including 28", function (assert) {
             var acceptableDate = isDayBetween01And28('40.06.2020');
+            assert.equal(acceptableDate, true);
+        });
+
+        QUnit.test("Ugyldig - 29 ok if Leap Year", function (assert) {
+            var acceptableDate = monthChecks('29.02.2019');
+            assert.equal(acceptableDate, true);
+        });
+
+        QUnit.test("Ugyldig - 30th all months apart from Febuary", function (assert) {
+            var acceptableDate = monthChecks('30.02.2019');
+            assert.equal(acceptableDate, true);
+        });
+
+        QUnit.test("Ugyldig - 31st allowed for January, March, May, July, August, October and December", function (assert) {
+            var acceptableDate = monthChecks('31.04.2015');
+            assert.equal(acceptableDate, true);
+        });
+
+        QUnit.test("Working - day 29", function (assert) {
+            var acceptableDate = monthChecks('29.02.2020');
+            assert.equal(acceptableDate, true);
+        });
+
+        QUnit.test("Working - day 30", function (assert) {
+            var acceptableDate = monthChecks('30.04.2020');
+            assert.equal(acceptableDate, true);
+        });
+
+        QUnit.test("Working - day 31", function (assert) {
+            var acceptableDate = monthChecks('31.05.2020');
             assert.equal(acceptableDate, true);
         });
     </script>

@@ -21,7 +21,7 @@ function isDotInThirdAndSeventhPlace(date) {
 
 //År er 0000 eller større. Kan sjekkes med year.length === 4 && year >= '0000' && year <= '9999'
 function isYearAbove0000(date) {
-    var year = date.substring(6, 10);
+    var year = date.substring(6);
     return year.length === 4 && year >= '0000' && year <= '9999';
 }
 
@@ -43,7 +43,7 @@ function isDayBetween01And28(date) {
 function monthChecks(date) {
     var day = date.substring(0, 2);
     var month = date.substring(3, 5);
-    var year = date.substring(6,10);
+    var year = date.substring(6);
     var isFebruary = month == '02';
     var isShortMonth = month == '04' || month ==  '06' || month ==  '09' || month ==  '11';
     var isLeapYear = ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
