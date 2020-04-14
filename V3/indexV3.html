@@ -27,6 +27,32 @@
             assert.equal(acceptableDate, true);
         });
 
+        // Unit tests after this point are for testing Ugyldig expressions//
+
+        QUnit.test("Ugyldig - Date length is 10", function (assert) {
+            var acceptableDate = isDateLengthOk('31.05.200');
+            assert.equal(acceptableDate, true);
+        });
+
+        QUnit.test("Ugyldig - Point at third and seventh position", function (assert) {
+            var acceptableDate = isDotInThirdAndSeventhPlace('3.1052.020');
+            assert.equal(acceptableDate, true);
+        });
+
+        QUnit.test("Ugyldig - Year is between 0000 and 9999", function (assert) {
+            var acceptableDate = isYearAbove0000('31.05.202037');
+            assert.equal(acceptableDate, true);
+        });
+
+        QUnit.test("Ugyldig - Month is from 01 to and including 12", function (assert) {
+            var acceptableDate = isMonthBetween01And12('06.15.2020');
+            assert.equal(acceptableDate, true);
+        });
+
+        QUnit.test("Ugyldig - Day is from 01 to and including 28 ", function (assert) {
+            var acceptableDate = isDayBetween01And28('40.06.2020');
+            assert.equal(acceptableDate, true);
+        });
     </script>
 </body>
 </html>
