@@ -6,7 +6,8 @@ function isThisOk(date) {
         && isDotInThirdAndSeventhPlace(date)
         && isYearAbove0000(date)
         && isMonthBetween01And12(date)
-        && isDayBetween01And28(date)
+        // && isDayBetween01And28(date)
+        && monthChecks(date)
 }
 
 //Teksten må ha lengde 10.
@@ -31,12 +32,13 @@ function isMonthBetween01And12(date) {
     return month >= '01' && month <= '12';
 }
 
-//Dag er fra og med 01 til og med 28
-function isDayBetween01And28(date) {
-    var day = date.substring(0, 2);
-    return day >= '01' && day <= '28';
-}
+// //Dag er fra og med 01 til og med 28
+// function isDayBetween01And28(date) {
+//     var day = date.substring(0, 2);
+//     return day >= '01' && day <= '28';
+// }
 
+//Dag er fra og med 01 til og med 28
 //29 er lov for februar hvis det er skuddår.
 //30 er lov for alle måneder utenom februar
 //31 er lovlig for januar, mars, mai, juli, august, oktober og desember
